@@ -8,7 +8,7 @@
 	<link rel="shortcut icon" href="assets/ico/favicon.png">
 	<script src="js/jquery.min.js"></script>
 
-	<title>Starter Template for Bootstrap</title>
+	<title>UR Seminars</title>
 
 	<script>
 		// script from http://www.w3schools.com/js/js_form_validation.asp
@@ -23,8 +23,13 @@
 				return false;
 			}
 			else {
-				document.getElementById("formGroup").className = "form-group";
-				return true;
+				document.getElementById("formGroup").className = "form-group has-success";
+				document.getElementById("inputEmail").setAttribute("disabled", true)
+				document.getElementById("submitBtn").setAttribute("disabled", true);
+
+				var text = document.createTextNode("Success!");
+				var child = document.getElementById("afterBtn");
+				child.parentNode.insertBefore(text,child);
 			}
 		}
 	</script>
@@ -47,11 +52,6 @@
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
 					<a class="navbar-brand" href="#">UR Seminars</a>
 				</div>
 			</div>
@@ -70,7 +70,8 @@
 									<label class="sr-only" for="inputEmail">Email address</label>
 									<input type="text" class="form-control input-sm" id="inputEmail" placeholder="Enter email" ng-model="yourName" name="inputEmail" />
 								</div>
-								<input type="submit" class="btn btn-sm" style="margin-top: 2px" value="Go" />
+								<input type="submit" class="btn btn-sm" style="margin-top: 2px" value="Go" id="submitBtn" />
+								<a id="afterBtn" />
 							</form>
 						</div>
 					</div>
@@ -90,12 +91,12 @@
 							<img class="media-object" src="image-1.jpeg" alt="..." height="64" width="64">
 							</a>
 							<div class="media-body">
-								<h4 class="media-heading">Modern Psychology</h4>
+								<h4 class="media-heading">Expressions in HCI</h4>
 								<strong>Date:</strong> 10/23/13<br />
 								<strong>Time:</strong> 4:30 - 6:00pm<br />
 								<strong>Location:</strong> Gavett 309 </br >
-								<strong>Speaker:</strong> Bill Nye<br />
-								<strong>Description:</strong> Join legendary scientist Bill Nye as he discusses how to approach the practice of psychology within the context of a modern lifestyle<br />
+								<strong>Speaker:</strong> M. Ehsan Hoque<br />
+								<strong>Description:</strong> This computer science professor discusses recent breakthroughs in using facial recognition to understand and simulate realistic human facial expressions.<br />
 							</div>
 						</li>
 						<li class="media">
