@@ -1,0 +1,63 @@
+<?php
+
+$fn = "test.txt";
+
+
+
+if (isset($_POST['content']))
+
+{
+
+    $content = stripslashes($_POST['content']);
+
+    $fp = fopen($fn,"w") or die ("Error opening file in write mode!");
+
+    fputs($fp,$content);
+
+    fclose($fp) or die ("Error closing file!");
+
+}
+
+?>
+
+
+
+<form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="post">
+
+    <textarea rows="25" cols="40" name="content"><?php readfile($fn); ?></textarea>
+
+    <input type="submit" value="Sauver"> 
+
+</form>
+
+
+
+// The example below displays a simple HTML form with two input fields and a submit button:
+______________
+
+<html>
+<body>
+
+<form action="welcome.php" method="post">
+Name: <input type="text" name="name"><br>
+E-mail: <input type="text" name="email"><br>
+<input type="submit">
+</form>
+
+</body>
+</html>
+
+// 
+
+To display the submitted data you could simply echo all the variables. 
+The "welcome.php" looks like this:
+_______
+
+<html>
+<body>
+
+Welcome <?php echo $_POST["name"]; ?><br>
+Your email address is: <?php echo $_POST["email"]; ?>
+
+</body>
+</html> 
